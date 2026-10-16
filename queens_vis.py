@@ -81,11 +81,11 @@ def main():
     p.add_argument("-m", type=int, default=1, help="stop at the m-th solution (default 1)")
     p.add_argument("--delay", type=float, default=0.4, help="seconds per frame (default 0.4)")
     p.add_argument("--step", action="store_true", help="press Enter for each frame")
-    p.add_argument("--no-clear", action="store_true", help="print frames one after another")
+    p.add_argument("--no-clear", dest="noClear", action="store_true", help="print frames one after another")
     a = p.parse_args()
     if a.n < 1 or a.m < 1:
         p.error("n and m must be >= 1")
-    visualise(a.n, a.m, a.delay, a.step, not a.no_clear)
+    visualise(a.n, a.m, a.delay, a.step, not a.noClear)
 
 
 if __name__ == "__main__":
